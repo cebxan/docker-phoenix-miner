@@ -26,9 +26,9 @@ RUN apt-get -y update && apt-get install -y --no-install-recommends \
 RUN curl --referer ${AMD_SITE_URL} -O ${AMD_SITE_URL}${AMDGPU_VERSION}.tar.xz \
     && tar -Jxvf ${AMDGPU_VERSION}.tar.xz \
     && ${AMDGPU_VERSION}/amdgpu-install -y --opencl=legacy --headless --no-dkms --no-32 \
-    && rm -rf amdgpu-pro-* /var/opt/amdgpu-pro-local /var/lib/apt/lists/* \
+    && rm -rf amdgpu-pro-* /var/opt/amdgpu-pro-local /var/lib/apt/lists/*
 
-    RUN curl -OL "https://github.com/PhoenixMinerDevTeam/PhoenixMiner/releases/download/${PHOENIX_VERSION}/PhoenixMiner_${PHOENIX_VERSION}_Linux.tar.gz" \
+RUN curl -OL "https://github.com/PhoenixMinerDevTeam/PhoenixMiner/releases/download/${PHOENIX_VERSION}/PhoenixMiner_${PHOENIX_VERSION}_Linux.tar.gz" \
     && tar -xzvf PhoenixMiner_${PHOENIX_VERSION}_Linux.tar.gz \
     && mv PhoenixMiner_${PHOENIX_VERSION}_Linux/PhoenixMiner phoenix-miner \
     && rm -rf PhoenixMiner*
