@@ -20,10 +20,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Sync
-        uses: ms-jpq/sync-dockerhub-readme@v1
+      - uses: actions/checkout@master
+
+      - uses: meeDamian/sync-readme@v1.0.6
         with:
-          username: cebxan
-          password: ${{ secrets.DOCKER_PASS }}
-          repository: cebxan/phoenix-miner
-          readme: 'README.md'
+          pass: ${{ secrets.DOCKER_PASS }}
+          slug: cebxan/phoenix-miner
+          description: true
