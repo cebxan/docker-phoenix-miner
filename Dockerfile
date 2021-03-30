@@ -6,8 +6,8 @@ ARG AMD_SITE_URL="https://drivers.amd.com/drivers/linux/"
 ARG AMDGPU_VERSION="amdgpu-pro-20.45-1188099-ubuntu-20.04"
 
 ENV TZ America/Caracas
-ENV POOL_ADDRESS "stratum1+tcp://us-east.ezil.me:5555"
-ENV WALLET_ADDRESS "0xcd14DeA4649927ff0c3a3Fd2B8d5D1858079DA15.zil1epm0936hxwuf790fztzuy8ztmm72ah20hh57xs"
+ENV POOL "stratum1+tcp://us-east.ezil.me:5555"
+ENV WALLET "0xcd14DeA4649927ff0c3a3Fd2B8d5D1858079DA15.zil1epm0936hxwuf790fztzuy8ztmm72ah20hh57xs"
 ENV PASSWORD "x"
 ENV WORKER "PhoenixMiner"
 ENV EXTRA_ARGS ""
@@ -33,4 +33,4 @@ RUN curl -OL "https://github.com/PhoenixMinerDevTeam/PhoenixMiner/releases/downl
     && mv PhoenixMiner_${PHOENIX_VERSION}_Linux/PhoenixMiner phoenix-miner \
     && rm -rf PhoenixMiner*
 
-ENTRYPOINT ./phoenix-miner -pool ${POOL_ADDRESS} -wal ${WALLET_ADDRESS}.${PASSWORD} -worker ${WORKER} ${EXTRA_ARGS}
+ENTRYPOINT ./phoenix-miner -pool ${POOL} -wal ${WALLET} -pass ${PASSWORD} -worker ${WORKER} ${EXTRA_ARGS}
